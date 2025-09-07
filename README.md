@@ -65,7 +65,7 @@ Between CVEs, custom tools, and CTFs, I love pushing the boundaries of what’s 
 
 ## 💻 Skills
 **Languages:**  
-`Python` · `C` · `GO`  `` · `JavaScript` · `PHP` · `Bash` · `SQL`  
+`Python` · `C` · `Go`  · `JavaScript` · `PHP` · `Bash` · `SQL`  
 
 **Technologies & Tools:**  
 `Linux` · `Docker` · `Nmap` · `BurpSuite` · `Metasploit` · `Kali Tools` · `Nuclei` · `Git` · `Ghidra`  
