@@ -65,10 +65,10 @@ Between CVEs, custom tools, and CTFs, I love pushing the boundaries of what’s 
 
 ## 💻 Skills
 **Languages:**  
-`Python` · `C` · `C++` · `Java` · `JavaScript` · `PHP` · `Bash` · `SQL`  
+`Python` · `C` · `GO`  `` · `JavaScript` · `PHP` · `Bash` · `SQL`  
 
 **Technologies & Tools:**  
-`Linux` · `Docker` · `Nmap` · `BurpSuite` · `Metasploit` · `Wireshark` · `Nuclei` · `Git` · `OWASP ZAP` · `Postman` · `JWT` · `Ghidra`  
+`Linux` · `Docker` · `Nmap` · `BurpSuite` · `Metasploit` · `Kali Tools` · `Nuclei` · `Git` · `Ghidra`  
 
 **Domains:**  
 `Penetration Testing` · `Exploit Development` · `Cryptanalysis` · `Bug Bounty` · `Reverse Engineering` · `Web Security` · `CTFs`  
