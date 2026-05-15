@@ -36,7 +36,7 @@
   CVEs Discovered  : 5
   Hall of Fames    : 5 (🇺🇸 State of California · 🇩🇪 Deutsche Telekom · 🌍 Mars VDP · 🇦🇺 RMIT · 🇺🇸 BIA)
   CTF Best Rank    : Top 15/454 — Bugcrowd Black Hat USA CTF 2024 && Top 1 - USD Hacking Night
-  Status           : Open for Werkstudent (Pentest / Vuln Research · Darmstadt/Frankfurt or Remote)
+  Status           : Werkstudent Software Security
 ```
 
 ---
