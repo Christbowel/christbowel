@@ -28,12 +28,12 @@
 └─$ cat about.txt
 
   Name     : Christ Bowel Bouchuen
-  Age      : 19
+  Age      : xx
   Location : Darmstadt, Germany
   Uni      : TU Darmstadt — B.Sc. Computer Science
   Focus    : Offensive Security | Vulnerability Research | Bug Bounty
 
-  CVEs Discovered  : 3
+  CVEs Discovered  : 5
   Hall of Fames    : 5 (🇺🇸 State of California · 🇩🇪 Deutsche Telekom · 🌍 Mars VDP · 🇦🇺 RMIT · 🇺🇸 BIA)
   CTF Best Rank    : Top 15/454 — Bugcrowd Black Hat USA CTF 2024 && Top 1 - USD Hacking Night
   Status           : Open for Werkstudent (Pentest / Vuln Research · Darmstadt/Frankfurt or Remote)
