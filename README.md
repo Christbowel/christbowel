@@ -4,7 +4,7 @@
 
 <br/>
 
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=22&pause=1000&color=00D4FF&center=true&vCenter=true&width=600&lines=Offensive+Security+%26+Vulnerability+Research;3+CVEs+Discovered+%7C+4+Hall+of+Fames;Top+15%2F454+%E2%80%94+Bugcrowd+Black+Hat+CTF+2024;Breaking+Things+to+Make+Them+Stronger)](https://git.io/typing-svg)
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=22&pause=1000&color=00D4FF&center=true&vCenter=true&width=600&lines=Offensive+Security+%26+Vulnerability+Research;5+CVEs+Discovered+%7C+4+Hall+of+Fames;Top+15%2F454+%E2%80%94+Bugcrowd+Black+Hat+CTF+2024;Breaking+Things+to+Make+Them+Stronger)](https://git.io/typing-svg)
 
 <br/>
 
