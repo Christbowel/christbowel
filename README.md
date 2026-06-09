@@ -47,29 +47,108 @@
 <tr>
 <td width="50%">
 
-### CVE-2024-29643 - Croogo CMS v3.0.2
-**Host Header Injection → RCE**
+### CVE-2026-49143 - browserstack-runner ≤ 0.9.5
+`CRITICAL · 8.7` · **Unauthenticated RCE → vm Sandbox Escape**
 
-Exploitable Host Header Injection in the `feed.rss` component allows injection of arbitrary PHP code via a malicious HTTP `Host` header - leading to **full system compromise**.
+The `/_log` HTTP handler passes unauthenticated user input to `vm.runInNewContext()` + `eval()`. A host-context `Function` reference (via `util.format`) escapes the Node.js sandbox, yielding full RCE on the host.
 
-[![NVD](https://img.shields.io/badge/NVD-CVE--2024--29643-red?style=flat-square)](https://nvd.nist.gov/vuln/detail/CVE-2024-29643)
+`RCE` · `Sandbox Escape` · `CWE-94`
+
+[
+
+![NVD](https://img.shields.io/badge/NVD-CVE--2026--49143-red?style=flat-square)
+
+](https://nvd.nist.gov/vuln/detail/CVE-2026-49143)
 
 </td>
 <td width="50%">
 
-### CVE-2026-25050 - Vendure 
-**Authentication Timing Attack → Username Enumeration**
+### CVE-2024-29643 - Croogo CMS v3.0.2
+`CRITICAL` · **Host Header Injection → RCE**
+
+Exploitable Host Header Injection in the `feed.rss` component allows injection of arbitrary PHP code via a malicious HTTP `Host` header - leading to **full system compromise**.
+
+`RCE` · `Host Header Injection`
+
+[
+
+![NVD](https://img.shields.io/badge/NVD-CVE--2024--29643-red?style=flat-square)
+
+](https://nvd.nist.gov/vuln/detail/CVE-2024-29643)
+
+</td>
+</tr>
+<tr>
+<td width="50%">
+
+### CVE-2026-39911 - Hashgraph Guardian ≤ 3.5.0
+`HIGH` · **Authenticated RCE → Unsandboxed JS Execution**
+
+The Custom Logic policy block worker passes user-supplied JavaScript directly to the Node.js `Function()` constructor without isolation. An authenticated Standard Registry user reads container files, leaks env credentials (RSA keys, JWT signing keys), and forges auth tokens for any user.
+
+`RCE` · `Code Injection` · `Token Forgery`
+
+[
+
+![NVD](https://img.shields.io/badge/NVD-CVE--2026--39911-red?style=flat-square)
+
+](https://nvd.nist.gov/vuln/detail/CVE-2026-39911)
+
+</td>
+<td width="50%">
+
+### CVE-2026-49144 - browserstack-runner ≤ 0.9.5
+`HIGH · 7.1` · **Unauthenticated Arbitrary File Read → Path Traversal**
+
+The `_default` HTTP handler resolves paths via `path.join(process.cwd(), uri)` without validating the result stays in-root. Combined with binding on `0.0.0.0` and no auth, allows reading arbitrary host files.
+
+`Path Traversal` · `CWE-22`
+
+[
+
+![NVD](https://img.shields.io/badge/NVD-CVE--2026--49144-red?style=flat-square)
+
+](https://nvd.nist.gov/vuln/detail/CVE-2026-49144)
+
+</td>
+</tr>
+<tr>
+<td width="50%">
+
+### CVE-2026-45248 - Hedera Guardian ≤ 3.5.1
+`MEDIUM · 6.9` · **Authentication Bypass → Sensitive Data Exposure**
+
+The `GET /api/v1/demo/registered-users` endpoint lacks authentication, allowing unauthenticated attackers to retrieve sensitive registered-user information.
+
+`Missing Authentication` · `CWE-306` · `Info Disclosure`
+
+[
+
+![NVD](https://img.shields.io/badge/NVD-CVE--2026--45248-red?style=flat-square)
+
+](https://nvd.nist.gov/vuln/detail/CVE-2026-45248)
+
+</td>
+<td width="50%">
+
+### CVE-2026-25050 - Vendure
+`MEDIUM` · **Authentication Timing Attack → Username Enumeration**
 
 Timing side-channel in the authentication flow enabling remote username enumeration - discovered and responsibly disclosed.
 
-`Authentication Bypass` · `Timing Attack` · `Username Enum`
+`Timing Attack` · `Username Enum`
 
-[![NVD](https://img.shields.io/badge/NVD-CVE--2025--25050-red?style=flat-square)](https://github.com/advisories/GHSA-6f65-4fv2-wwch)
+[
+
+![NVD](https://img.shields.io/badge/NVD-CVE--2026--25050-red?style=flat-square)
+
+](https://nvd.nist.gov/vuln/detail/CVE-2026-25050)
 
 </td>
 </tr>
 </table>
 
+> 🔒 **+1 reserved** — `CVE-2026-22674` (Hashgraph Guardian), coordinated disclosure pending · public **Aug 2026**
 ---
 
 ## 🔵 CVE Contributions & Community Work
