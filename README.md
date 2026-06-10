@@ -36,119 +36,95 @@
   CVEs Discovered  : 7
   Hall of Fames    : 5 (🇺🇸 State of California · 🇩🇪 Deutsche Telekom · 🌍 Mars VDP · 🇦🇺 RMIT · 🇺🇸 BIA)
   CTF Best Rank    : Top 15/454 — Bugcrowd Black Hat USA CTF 2024 && Top 1 - USD Hacking Night
-  Status           : Werkstudent Software Security
+  Status           : Software Security @ PAYONE GmbH
 ```
 
----
 
 ## 🔴 CVEs Discovered
 
-<table>
-<tr>
-<td width="50%">
-
 ### CVE-2026-49143 - browserstack-runner ≤ 0.9.5
-`CRITICAL · 8.7` · **Unauthenticated RCE → vm Sandbox Escape**
+**Severity:** CRITICAL (CVSS 8.7)
 
-The `/_log` HTTP handler passes unauthenticated user input to `vm.runInNewContext()` + `eval()`. A host-context `Function` reference (via `util.format`) escapes the Node.js sandbox, yielding full RCE on the host.
+**Unauthenticated RCE → VM Sandbox Escape**
 
-`RCE` · `Sandbox Escape` · `CWE-94`
+The `/_log` HTTP handler passes unauthenticated user input to `vm.runInNewContext()` and `eval()`. A host-context `Function` reference (via `util.format`) can be abused to escape the Node.js sandbox, resulting in full remote code execution on the host.
 
-[
+**Impact:** `RCE` · `Sandbox Escape` · `CWE-94`
 
-![NVD](https://img.shields.io/badge/NVD-CVE--2026--49143-red?style=flat-square)
+[NVD Reference](https://nvd.nist.gov/vuln/detail/CVE-2026-49143)
 
-](https://nvd.nist.gov/vuln/detail/CVE-2026-49143)
-
-</td>
-<td width="50%">
+---
 
 ### CVE-2024-29643 - Croogo CMS v3.0.2
-`CRITICAL` · **Host Header Injection → RCE**
+**Severity:** CRITICAL
 
-Exploitable Host Header Injection in the `feed.rss` component allows injection of arbitrary PHP code via a malicious HTTP `Host` header - leading to **full system compromise**.
+**Host Header Injection → RCE**
 
-`RCE` · `Host Header Injection`
+A Host Header Injection vulnerability in the `feed.rss` component allows arbitrary PHP code injection through a malicious HTTP `Host` header, leading to full system compromise.
 
-[
+**Impact:** `RCE` · `Host Header Injection`
 
-![NVD](https://img.shields.io/badge/NVD-CVE--2024--29643-red?style=flat-square)
+[NVD Reference](https://nvd.nist.gov/vuln/detail/CVE-2024-29643)
 
-](https://nvd.nist.gov/vuln/detail/CVE-2024-29643)
-
-</td>
-</tr>
-<tr>
-<td width="50%">
+---
 
 ### CVE-2026-39911 - Hashgraph Guardian ≤ 3.5.0
-`HIGH` · **Authenticated RCE → Unsandboxed JS Execution**
+**Severity:** HIGH
 
-The Custom Logic policy block worker passes user-supplied JavaScript directly to the Node.js `Function()` constructor without isolation. An authenticated Standard Registry user reads container files, leaks env credentials (RSA keys, JWT signing keys), and forges auth tokens for any user.
+**Authenticated RCE → Unsandboxed JavaScript Execution**
 
-`RCE` · `Code Injection` · `Token Forgery`
+The Custom Logic policy block worker passes user-supplied JavaScript directly to the Node.js `Function()` constructor without isolation. An authenticated Standard Registry user can read container files, leak sensitive environment credentials (RSA keys, JWT signing keys), and forge authentication tokens for arbitrary users.
 
-[
+**Impact:** `RCE` · `Code Injection` · `Token Forgery`
 
-![NVD](https://img.shields.io/badge/NVD-CVE--2026--39911-red?style=flat-square)
+[NVD Reference](https://nvd.nist.gov/vuln/detail/CVE-2026-39911)
 
-](https://nvd.nist.gov/vuln/detail/CVE-2026-39911)
-
-</td>
-<td width="50%">
+---
 
 ### CVE-2026-49144 - browserstack-runner ≤ 0.9.5
-`HIGH · 7.1` · **Unauthenticated Arbitrary File Read → Path Traversal**
+**Severity:** HIGH (CVSS 7.1)
 
-The `_default` HTTP handler resolves paths via `path.join(process.cwd(), uri)` without validating the result stays in-root. Combined with binding on `0.0.0.0` and no auth, allows reading arbitrary host files.
+**Unauthenticated Arbitrary File Read → Path Traversal**
 
-`Path Traversal` · `CWE-22`
+The `_default` HTTP handler resolves paths using `path.join(process.cwd(), uri)` without validating that the resulting path remains within the application root. Combined with binding on `0.0.0.0` and the absence of authentication, this allows arbitrary file disclosure from the host.
 
-[
+**Impact:** `Path Traversal` · `CWE-22`
 
-![NVD](https://img.shields.io/badge/NVD-CVE--2026--49144-red?style=flat-square)
+[NVD Reference](https://nvd.nist.gov/vuln/detail/CVE-2026-49144)
 
-](https://nvd.nist.gov/vuln/detail/CVE-2026-49144)
-
-</td>
-</tr>
-<tr>
-<td width="50%">
+---
 
 ### CVE-2026-45248 - Hedera Guardian ≤ 3.5.1
-`MEDIUM · 6.9` · **Authentication Bypass → Sensitive Data Exposure**
+**Severity:** MEDIUM (CVSS 6.9)
 
-The `GET /api/v1/demo/registered-users` endpoint lacks authentication, allowing unauthenticated attackers to retrieve sensitive registered-user information.
+**Authentication Bypass → Sensitive Data Exposure**
 
-`Missing Authentication` · `CWE-306` · `Info Disclosure`
+The `GET /api/v1/demo/registered-users` endpoint lacks authentication controls, allowing unauthenticated attackers to retrieve sensitive user information.
 
-[
+**Impact:** `Missing Authentication` · `CWE-306` · `Information Disclosure`
 
-![NVD](https://img.shields.io/badge/NVD-CVE--2026--45248-red?style=flat-square)
+[NVD Reference](https://nvd.nist.gov/vuln/detail/CVE-2026-45248)
 
-](https://nvd.nist.gov/vuln/detail/CVE-2026-45248)
-
-</td>
-<td width="50%">
+---
 
 ### CVE-2026-25050 - Vendure
-`MEDIUM` · **Authentication Timing Attack → Username Enumeration**
+**Severity:** MEDIUM
 
-Timing side-channel in the authentication flow enabling remote username enumeration - discovered and responsibly disclosed.
+**Authentication Timing Attack → Username Enumeration**
 
-`Timing Attack` · `Username Enum`
+A timing side-channel vulnerability in the authentication workflow enables remote username enumeration.
 
-[
+**Impact:** `Timing Attack` · `Username Enumeration`
 
-![NVD](https://img.shields.io/badge/NVD-CVE--2026--25050-red?style=flat-square)
+[NVD Reference](https://nvd.nist.gov/vuln/detail/CVE-2026-25050)
 
-](https://nvd.nist.gov/vuln/detail/CVE-2026-25050)
+---
 
-</td>
-</tr>
-</table>
+> 🔒 **Reserved CVE**
+>
+> **CVE-2026-22674** - Hashgraph Guardian  
+> Coordinated disclosure in progress. Public disclosure scheduled for **August 2026**.
 
-> 🔒 **+1 reserved** — `CVE-2026-22674` (Hashgraph Guardian), coordinated disclosure pending · public **Aug 2026**
 ---
 
 ## 🔵 CVE Contributions & Community Work
