@@ -4,7 +4,7 @@
 
 <br/>
 
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=22&pause=1000&color=00D4FF&center=true&vCenter=true&width=600&lines=Offensive+Security+%26+Vulnerability+Research;7+CVEs+Discovered+%7C+4+Hall+of+Fames;Top+15%2F454+%E2%80%94+Bugcrowd+Black+Hat+CTF+2024;Breaking+Things+to+Make+Them+Stronger)](https://git.io/typing-svg)
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=22&pause=1000&color=00D4FF&center=true&vCenter=true&width=600&lines=Offensive+Security+%26+Vulnerability+Research;13+CVEs+Discovered+%7C+4+Hall+of+Fames;Top+15%2F454+%E2%80%94+Bugcrowd+Black+Hat+CTF+2024;Breaking+Things+to+Make+Them+Stronger)](https://git.io/typing-svg)
 
 <br/>
 
@@ -39,212 +39,34 @@
   Status           : Software Security @ PAYONE GmbH
 ```
 
+## CVE Highlights
 
-## 🔴 CVEs Discovered
+Six highlights below. Thirteen CVEs assigned in total.
 
-### CVE-2026-49143 - browserstack-runner ≤ 0.9.5
-**Severity:** CRITICAL (CVSS 8.7)
+- **[CVE-2026-56111](https://nvd.nist.gov/vuln/detail/CVE-2026-56111)** · Marlin firmware. Out-of-bounds write; memory corruption validated on real STM32 hardware.
+- **[CVE-2026-49143](https://nvd.nist.gov/vuln/detail/CVE-2026-49143)** · browserstack-runner. Node VM sandbox escape to unauthenticated RCE. CVSS 8.7.
+- **[CVE-2026-49144](https://nvd.nist.gov/vuln/detail/CVE-2026-49144)** · browserstack-runner. Path traversal to unauthenticated file read; full host compromise when chained.
+- **[CVE-2026-67195](https://nvd.nist.gov/vuln/detail/CVE-2026-67195)** · FINOS Perspective. eval injection in PolarsVirtualServer; unauthenticated RCE.
+- **[CVE-2026-39911](https://nvd.nist.gov/vuln/detail/CVE-2026-39911)** · Hashgraph Guardian. Unsandboxed `Function()` to authenticated RCE, credential leak, and auth token forgery.
+- **[CVE-2024-29643](https://nvd.nist.gov/vuln/detail/CVE-2024-29643)** · Croogo CMS. Host Header Injection to RCE.
 
-**Unauthenticated RCE → VM Sandbox Escape**
+Seven more across Guardian, Perspective, and other targets.
 
-The `/_log` HTTP handler passes unauthenticated user input to `vm.runInNewContext()` and `eval()`. A host-context `Function` reference (via `util.format`) can be abused to escape the Node.js sandbox, resulting in full remote code execution on the host.
+## Reported and Fixed
 
-**Impact:** `RCE` · `Sandbox Escape` · `CWE-94`
+Vulnerabilities disclosed and patched by maintainers, no CVE assigned.
 
-[NVD Reference](https://nvd.nist.gov/vuln/detail/CVE-2026-49143)
+- **OWASP Dependency-Track** · IDOR, confused deputy, and multi-team permission union across v4.14 and v5 (Hyades). Coordinated with maintainers and VulnCheck.
+- **Symfony** · Deserialization trampoline through nested `unserialize()`, bypassing `allowed_classes`. Coordinated with a core maintainer.
 
----
+## Selected Work
 
-### CVE-2024-29643 - Croogo CMS v3.0.2
-**Severity:** CRITICAL
+- **OSDC (Open Source Daily Catch)** · Automated silent-patch detection. Scrapes the GitHub Advisory Database and diffs quiet fixes to surface n-days before they go public. The pipeline behind much of the CVE output above.
+- **Diffuse** · Decentralized AI inference protocol in Rust. TEE, Shamir secret sharing for prompt fragmentation, and ZK execution proofs, so inference runs without any single party ever seeing plaintext. Architecture and specification stage.
 
-**Host Header Injection → RCE**
+## Elsewhere
 
-A Host Header Injection vulnerability in the `feed.rss` component allows arbitrary PHP code injection through a malicious HTTP `Host` header, leading to full system compromise.
-
-**Impact:** `RCE` · `Host Header Injection`
-
-[NVD Reference](https://nvd.nist.gov/vuln/detail/CVE-2024-29643)
-
----
-
-### CVE-2026-39911 - Hashgraph Guardian ≤ 3.5.0
-**Severity:** HIGH
-
-**Authenticated RCE → Unsandboxed JavaScript Execution**
-
-The Custom Logic policy block worker passes user-supplied JavaScript directly to the Node.js `Function()` constructor without isolation. An authenticated Standard Registry user can read container files, leak sensitive environment credentials (RSA keys, JWT signing keys), and forge authentication tokens for arbitrary users.
-
-**Impact:** `RCE` · `Code Injection` · `Token Forgery`
-
-[NVD Reference](https://nvd.nist.gov/vuln/detail/CVE-2026-39911)
-
----
-
-### CVE-2026-49144 - browserstack-runner ≤ 0.9.5
-**Severity:** HIGH (CVSS 7.1)
-
-**Unauthenticated Arbitrary File Read → Path Traversal**
-
-The `_default` HTTP handler resolves paths using `path.join(process.cwd(), uri)` without validating that the resulting path remains within the application root. Combined with binding on `0.0.0.0` and the absence of authentication, this allows arbitrary file disclosure from the host.
-
-**Impact:** `Path Traversal` · `CWE-22`
-
-[NVD Reference](https://nvd.nist.gov/vuln/detail/CVE-2026-49144)
-
----
-
-### CVE-2026-45248 - Hedera Guardian ≤ 3.5.1
-**Severity:** MEDIUM (CVSS 6.9)
-
-**Authentication Bypass → Sensitive Data Exposure**
-
-The `GET /api/v1/demo/registered-users` endpoint lacks authentication controls, allowing unauthenticated attackers to retrieve sensitive user information.
-
-**Impact:** `Missing Authentication` · `CWE-306` · `Information Disclosure`
-
-[NVD Reference](https://nvd.nist.gov/vuln/detail/CVE-2026-45248)
-
----
-
-### CVE-2026-25050 - Vendure
-**Severity:** MEDIUM
-
-**Authentication Timing Attack → Username Enumeration**
-
-A timing side-channel vulnerability in the authentication workflow enables remote username enumeration.
-
-**Impact:** `Timing Attack` · `Username Enumeration`
-
-[NVD Reference](https://nvd.nist.gov/vuln/detail/CVE-2026-25050)
-
----
-
-> 🔒 **Reserved CVE**
->
-> **CVE-2026-22674** - Hashgraph Guardian  
-> Coordinated disclosure in progress. Public disclosure scheduled for **August 2026**.
-
----
-
-## 🔵 CVE Contributions & Community Work
-
-| CVE | Target | Contribution |
-|-----|--------|-------------|
-| [CVE-2023-25136](https://nvd.nist.gov/vuln/detail/CVE-2023-25136) | OpenSSH 9.1 | Python mass scanner + exploit framework — widely adopted by the community |
-| [CVE-2024-25600](https://nvd.nist.gov/vuln/detail/CVE-2024-25600) | WordPress Bricks Builder | Official **Nuclei template** (2 versions) merged by ProjectDiscovery |
-
----
-
-## 🏆 Hall of Fame
-
-<div align="center">
-
-| Organization | Finding | Year |
-|---|---|---|
-| 🏛️ **State of California** · via Bugcrowd | SQL Injection → RCE → `NT AUTHORITY\SYSTEM` | 2024 |
-| 🏛️ **Bureau of Indian Affairs (BIA)** | Multiple critical vulnerabilities on federal systems | 2023 |
-| 🌍 **Mars Vulnerability Disclosure Program** | IDOR + Client Information Disclosure + Client-Side Validation Bypass | 2025 |
-| 🎓 **RMIT University** · Australia | Responsible disclosure | 2023 |
-
-</div>
-
----
-
-## ⚒️ Projects
-
-<table>
-<tr>
-<td width="50%">
-
-### 🔥 [Infiltrator](https://github.com/christbowel/infiltrator)
-**Red Team Input Monitoring Framework** · `Go`
-
-Stealthy input surveillance tool for security research. Captures keystrokes, clipboard data, screenshots, and system info — exfiltrates securely via Telegram bot.
-
-![Go](https://img.shields.io/badge/Go-00ADD8?style=flat-square&logo=go&logoColor=white)
-
-</td>
-<td width="50%">
-
-### 🔑 [CipherBuster](https://github.com/Christbowel/CipherBuster)
-**RSA Exploitation Framework** · `Python`
-
-Analyzes and exploits weak RSA keys via factorization attacks and weak key detection. Built for CTFs and real-world pentest scenarios.
-
-![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
-
-</td>
-</tr>
-<tr>
-<td width="50%">
-
-### 🛡️ RedTeamer
-**Offensive Simulation Toolkit**
-
-Payload generators, privilege escalation helpers, persistence techniques — full adversary simulation framework.
-
-![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white) ![Bash](https://img.shields.io/badge/Bash-4EAA25?style=flat-square&logo=gnubash&logoColor=white)
-
-</td>
-<td width="50%">
-
-### 🔵 BlueTeamer
-**Defensive Analysis Companion**
-
-Log analysis, anomaly detection, and automated detection rule generation. The defensive counterpart to RedTeamer.
-
-![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
-
-</td>
-</tr>
-</table>
-
----
-
-## 🧰 Skills & Arsenal
-
-**Languages**
-
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![Go](https://img.shields.io/badge/Go-00ADD8?style=for-the-badge&logo=go&logoColor=white)
-![C](https://img.shields.io/badge/C-A8B9CC?style=for-the-badge&logo=c&logoColor=black)
-![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
-![Bash](https://img.shields.io/badge/Bash-4EAA25?style=for-the-badge&logo=gnubash&logoColor=white)
-![SQL](https://img.shields.io/badge/SQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
-
-**Tools**
-
-![BurpSuite](https://img.shields.io/badge/Burp_Suite-FF6633?style=for-the-badge&logo=portswigger&logoColor=white)
-![Metasploit](https://img.shields.io/badge/Metasploit-2596CD?style=for-the-badge&logo=metasploit&logoColor=white)
-![Nmap](https://img.shields.io/badge/Nmap-0E83CD?style=for-the-badge&logo=nmap&logoColor=white)
-![Nuclei](https://img.shields.io/badge/Nuclei-00D4FF?style=for-the-badge&logo=go&logoColor=black)
-![Ghidra](https://img.shields.io/badge/Ghidra-FF0000?style=for-the-badge&logo=nsa&logoColor=white)
-![Wireshark](https://img.shields.io/badge/Wireshark-1679A7?style=for-the-badge&logo=wireshark&logoColor=white)
-![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
-![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
-
-**Domains**
-
-`Web Security` · `API Penetration Testing` · `Active Directory` · `Network Security`
-`Exploit Development` · `Reverse Engineering` · `Cryptanalysis` · `Bug Bounty` · `CTFs`
-
----
-
-## 📜 Certifications
-
-| Certification | Issuer | Date |
-|---|---|---|
-| usd Hacking Night – Ethical Hacking Skills | usd AG | Nov. 2025 |
-| Certified AppSec Practitioner (CAP) | The SecOps Group | Feb. 2023 |
-| API Security Penetration Testing | APIsec University | Jan. 2024 |
-| CompTIA PenTest+ Learning Path | TryHackMe | Apr. 2023 |
-| AZ-500: Securing Data & Applications | Microsoft | Apr. 2023 |
-
-> 🥇 **1st Place** — usd Hacking Night CTF, Nov. 2025
-
----
-
+1st place, usd Hacking Night CTF. Halls of Fame across public and federal disclosure programs. Coordinated Vulnerability Disclosure through VulnCheck.
 ## 📊 Stats
 
 <div align="center">
