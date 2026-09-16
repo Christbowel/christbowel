@@ -41,7 +41,7 @@
 
 ## CVE Highlights
 
-Six highlights below. Thirteen CVEs assigned in total.
+Highlights below. Thirteen CVEs assigned in total.
 
 - **[CVE-2026-56111](https://nvd.nist.gov/vuln/detail/CVE-2026-56111)** · Marlin firmware. Out-of-bounds write; memory corruption validated on real STM32 hardware.
 - **[CVE-2026-49143](https://nvd.nist.gov/vuln/detail/CVE-2026-49143)** · browserstack-runner. Node VM sandbox escape to unauthenticated RCE. CVSS 8.7.
