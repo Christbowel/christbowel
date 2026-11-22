@@ -33,7 +33,7 @@
   Uni      : TU Darmstadt — B.Sc. Computer Science
   Focus    : Offensive Security | Vulnerability Research | Bug Bounty
 
-  CVEs Discovered  : 7
+  CVEs Discovered  : 14
   Hall of Fames    : 5 (🇺🇸 State of California · 🇩🇪 Deutsche Telekom · 🌍 Mars VDP · 🇦🇺 RMIT · 🇺🇸 BIA)
   CTF Best Rank    : Top 15/454 — Bugcrowd Black Hat USA CTF 2024 && Top 1 - USD Hacking Night
   Status           : Software Security @ PAYONE GmbH
@@ -41,7 +41,7 @@
 
 ## CVE Highlights
 
-Highlights below. Thirteen CVEs assigned in total.
+Highlights below. fourteen CVEs assigned in total.
 
 - **[CVE-2026-56111](https://nvd.nist.gov/vuln/detail/CVE-2026-56111)** · Marlin firmware. Out-of-bounds write; memory corruption validated on real STM32 hardware.
 - **[CVE-2026-49143](https://nvd.nist.gov/vuln/detail/CVE-2026-49143)** · browserstack-runner. Node VM sandbox escape to unauthenticated RCE. CVSS 8.7.
